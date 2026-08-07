@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拾光軌跡 | 個人學習歷程網站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #F8F9FA;
+            color: #4A4A4A;
+            overflow-x: hidden;
+        }
+        .morandi-bg-primary { background-color: #A3B18A; }
+        .morandi-text-primary { color: #588157; }
+        
+        /* 滾動動畫：由淺到深 (Opacity + Translate) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+
+        .sub-category-card {
+            transition: all 0.3s ease;
+        }
+        .sub-category-card:hover {
+            transform: translateY(-3px);
+        }
+
+        /* 右側導覽圓點樣式 */
+        .dot-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #CBD5E1;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .dot-indicator.active {
+            background-color: #588157;
+            transform: scale(1.3);
+            box-shadow: 0 0 8px rgba(88, 129, 87, 0.5);
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <div class="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col space-y-4 bg-white/70 backdrop-blur-md p-3 rounded-full shadow-lg border border-gray-100">
+        <a href="#home" class="dot-indicator active" title="首頁" data-section="home"></a>
+        <a href="#science" class="dot-indicator" title="科學探究" data-section="science"></a>
+        <a href="#logic" class="dot-indicator" title="邏輯數理" data-section="logic"></a>
+        <a href="#activities" class="dot-indicator" title="多元活動探索" data-section="activities"></a>
+        <a href="#self-learning" class="dot-indicator" title="自主學習" data-section="self-learning"></a>
+    </div>
+
+    <nav class="morandi-bg-primary text-white sticky top-0 z-40 shadow-md">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="#home" class="font-bold text-xl tracking-widest">拾光軌跡</a>
+            <div class="flex space-x-1 md:space-x-6 text-sm md:text-base">
+                <a href="#home" class="nav-link px-2 md:px-3 py-2 transition">首頁</a>
+                <a href="#science" class="nav-link px-2 md:px-3 py-2 transition">科學探究</a>
+                <a href="#logic" class="nav-link px-2 md:px-3 py-2 transition">邏輯數理</a>
+                <a href="#activities" class="nav-link px-2 md:px-3 py-2 transition">多元活動探索</a>
+                <a href="#self-learning" class="nav-link px-2 md:px-3 py-2 transition">自主學習</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="scroll-section max-w-4xl mx-auto pt-16 pb-12 md:pt-24 md:pb-16 px-4 reveal">
+        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-sm flex flex-col md:flex-row items-center gap-10">
+            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-[#DDE5B6] flex-shrink-0 shadow-inner">
+                <img src="file:///C:/Users/cindy/OneDrive/%E5%9C%96%E7%89%87/Camera%20Roll/%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92%20%E9%A0%AD%E5%83%8F.jpg" alt="杜學沛的大頭貼" class="w-full h-full object-cover object-[center_20%]">
+            </div>
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold morandi-text-primary">杜學沛</h1>
+                <p class="text-sm font-semibold tracking-wider text-gray-400 mb-4 uppercase">TU HSUEH PEI</p>
+                <p class="text-lg leading-relaxed text-gray-600 mb-6">
+                    目前就讀高二，這是一個紀錄我如何從「被動學習」轉向「主動探究」的數位空間。我不僅關注學科分數，更在乎解決問題的過程與跨領域的連結。
+                </p>
+                
+                <div class="space-y-3">
+                    <div>
+                        <span class="text-xs font-bold text-gray-500 block mb-1.5 tracking-wider">能力特質 · STRENGTHS</span>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-[#DDE5B6] text-[#588157] rounded-full text-xs font-medium">細心</span>
+                            <span class="px-3 py-1 bg-[#DDE5B6] text-[#588157] rounded-full text-xs font-medium">考慮周到</span>
+                            <span class="px-3 py-1 bg-[#DDE5B6] text-[#588157] rounded-full text-xs font-medium">樂於助人</span>
+                            <span class="px-3 py-1 bg-[#DDE5B6] text-[#588157] rounded-full text-xs font-medium">善於觀察</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-gray-500 block mb-1.5 tracking-wider">興趣 · INTERESTS</span>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">🏀 籃球</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">🏐 排球</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">🎸 彈吉他</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">📚 閱讀</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto pb-20 px-4 space-y-16">
+        
+        <section id="science" class="scroll-section bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#81A1C1] reveal pt-12">
+            <div class="flex items-center mb-4">
+                <span class="text-2xl mr-3">🔬</span>
+                <h2 class="text-2xl font-bold text-[#5E81AC]">科學探究與實作</h2>
+            </div>
+            <p class="text-gray-500 mb-6 text-sm">整合物化生實驗與選修課程，展現觀察、假設與驗證的循環。</p>
+
+            <div class="space-y-4 mb-6">
+                <button onclick="toggleModal('scienceModal')" class="w-full sub-category-card flex items-center justify-between p-4 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-xl text-left transition shadow-sm">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://img.icons8.com/fluency/48/physics.png" class="w-6 h-6 object-contain" alt="icon">
+                        <div>
+                            <span class="font-bold text-gray-800 block text-sm">高一高二自然探究</span>
+                            <span class="text-xs text-blue-600">包含物理、生物、化學探究成果，點擊查看 →</span>
+                        </div>
+                    </div>
+                    <span class="text-xs px-2.5 py-1 bg-blue-500 text-white rounded-md font-medium">開啟視窗</span>
+                </button>
+
+                <div class="border border-green-100 bg-emerald-50/50 p-4 rounded-xl space-y-3">
+                    <div class="flex items-center space-x-2 mb-1">
+                        <img src="https://img.icons8.com/fluency/48/dna.png" class="w-5 h-5" alt="icon">
+                        <h3 class="text-sm font-bold text-emerald-800">高一高二生物實驗</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+                        <a href="https://canva.link/0xui8q274ej88pz" target="_blank" class="sub-category-card p-2.5 bg-white hover:bg-emerald-50 border border-emerald-100 rounded-lg text-xs transition shadow-sm block">
+                            <span class="text-gray-800 font-bold block mb-1">高一生物實驗</span>
+                            <span class="text-emerald-600 text-[10px]">點擊開啟 Canva →</span>
+                        </a>
+                        <a href="https://canva.link/1nmsdx00lesnxbg" target="_blank" class="sub-category-card p-2.5 bg-white hover:bg-emerald-50 border border-emerald-100 rounded-lg text-xs transition shadow-sm block">
+                            <span class="text-gray-800 font-bold block mb-1">高二選修生物 I 歷程</span>
+                            <span class="text-emerald-600 text-[10px]">點擊開啟 Canva →</span>
+                        </a>
+                        <a href="https://canva.link/59am806smicnvh4" target="_blank" class="sub-category-card p-2.5 bg-white hover:bg-emerald-50 border border-emerald-100 rounded-lg text-xs transition shadow-sm block">
+                            <span class="text-gray-800 font-bold block mb-1">高二選修生物 Ⅲ 歷程</span>
+                            <span class="text-emerald-600 text-[10px]">點擊開啟 Canva →</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="https://canva.link/ubkrzskgbbkmg14" target="_blank" class="sub-category-card flex items-center space-x-3 p-3.5 bg-gray-50 hover:bg-blue-50 border border-gray-100 hover:border-blue-200 rounded-xl text-xs transition shadow-sm">
+                    <img src="https://img.icons8.com/fluency/48/news.png" class="w-6 h-6 object-contain" alt="icon">
+                    <div class="flex-1">
+                        <span class="text-gray-800 font-bold block text-sm">高二選修 科普閱新知</span>
+                        <span class="text-blue-500 text-[10px]">點擊在新分頁開啟 Canva 成果 →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="logic" class="scroll-section bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#8FBCBB] reveal pt-12">
+            <div class="flex items-center mb-4">
+                <span class="text-2xl mr-3">🧮</span>
+                <h2 class="text-2xl font-bold text-[#3B7E7C]">邏輯思考與數理</h2>
+            </div>
+            <p class="text-gray-500 mb-6 text-sm">運用數學邏輯、運算思維與實作，解決複雜的抽象與現實問題。</p>
+            
+            <div class="space-y-3">
+                <a href="https://canva.link/csxn5ab1s1rq4ff" target="_blank" class="sub-category-card flex items-center space-x-3 p-3.5 bg-gray-50 hover:bg-teal-50 border border-gray-100 hover:border-teal-200 rounded-xl text-xs transition shadow-sm">
+                    <img src="https://img.icons8.com/fluency/48/domino.png" class="w-6 h-6 object-contain" alt="icon">
+                    <div class="flex-1">
+                        <span class="text-gray-800 font-bold block text-sm">高二創意骨牌競賽</span>
+                        <span class="text-teal-600 text-[10px]">點擊在新分頁開啟 Canva 成果 →</span>
+                    </div>
+                </a>
+
+                <a href="https://canva.link/w32me96a2qyb73h" target="_blank" class="sub-category-card flex items-center space-x-3 p-3.5 bg-gray-50 hover:bg-teal-50 border border-gray-100 hover:border-teal-200 rounded-xl text-xs transition shadow-sm">
+                    <img src="https://img.icons8.com/fluency/48/source-code.png" class="w-6 h-6 object-contain" alt="icon">
+                    <div class="flex-1">
+                        <span class="text-gray-800 font-bold block text-sm">資訊課學習成果</span>
+                        <span class="text-teal-600 text-[10px]">點擊在新分頁開啟 Canva 成果 →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="activities" class="scroll-section bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#BF616A] reveal pt-12">
+            <div class="flex items-center mb-4">
+                <span class="text-2xl mr-3">🎭</span>
+                <h2 class="text-2xl font-bold text-[#A0525A]">多元活動探索</h2>
+            </div>
+            <p class="text-gray-500 mb-4 text-sm">透過跨領域活動與藝術，培養同理心與團隊合作力。</p>
+            <ul class="space-y-3 mb-6">
+                <li class="flex justify-between items-center p-3.5 bg-gray-50 rounded-lg hover:shadow-inner transition cursor-pointer">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://img.icons8.com/fluency/48/scroll.png" class="w-6 h-6 object-contain" alt="icon">
+                        <span class="font-medium text-gray-700">語文/社會：國文作文與地理繪製</span>
+                    </div>
+                    <span class="text-xs text-red-400">詳情 →</span>
+                </li>
+            </ul>
+
+            <div class="border-t border-gray-100 pt-4 space-y-4">
+                <h4 class="text-xs font-bold tracking-widest text-[#A0525A] mb-2">▼ 多元表現成果總覽</h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="sub-category-card bg-gray-50 p-3 rounded-xl border border-gray-100">
+                        <span class="text-sm font-bold text-gray-800 block mb-2">👥 幹部經歷</span>
+                        <a href="#" class="flex items-center space-x-2 p-2 bg-white rounded-lg text-xs hover:bg-gray-100 transition shadow-sm">
+                            <img src="https://img.icons8.com/fluency/48/conference-call.png" class="w-4 h-4" alt="icon">
+                            <span class="text-gray-600 font-medium">113學年 班級服務成果檔</span>
+                        </a>
+                    </div>
+
+                    <div class="sub-category-card bg-gray-50 p-3 rounded-xl border border-gray-100">
+                        <span class="text-sm font-bold text-gray-800 block mb-2">🏆 競賽參與紀錄</span>
+                        <div class="space-y-1.5">
+                            <a href="https://canva.link/gt861r22a679jt3" target="_blank" class="flex items-center space-x-2 p-1.5 bg-white rounded-lg text-xs hover:bg-red-50 transition shadow-sm border border-gray-100">
+                                <img src="https://img.icons8.com/fluency/48/trophy.png" class="w-4 h-4" alt="icon">
+                                <span class="text-gray-700 font-medium">科學與科普專業英文能力大賽</span>
+                            </a>
+                            <a href="https://canva.link/9g28lrjzwjeqv4q" target="_blank" class="flex items-center space-x-2 p-1.5 bg-white rounded-lg text-xs hover:bg-red-50 transition shadow-sm border border-gray-100">
+                                <img src="https://img.icons8.com/fluency/48/trophy.png" class="w-4 h-4" alt="icon">
+                                <span class="text-gray-700 font-medium">2026 IAP 羅浮宮國際藝術展</span>
+                            </a>
+                            <a href="https://canva.link/ivla95rokpk3s6g" target="_blank" class="flex items-center space-x-2 p-1.5 bg-white rounded-lg text-xs hover:bg-red-50 transition shadow-sm border border-gray-100">
+                                <img src="https://img.icons8.com/fluency/48/trophy.png" class="w-4 h-4" alt="icon">
+                                <span class="text-gray-700 font-medium">22屆 IMC 國際數學競賽</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="sub-category-card bg-gray-50 p-3 rounded-xl border border-gray-100">
+                        <span class="text-sm font-bold text-gray-800 block mb-2">🌟 其他多元表現</span>
+                        <a href="https://canva.link/q01aad1i5xs7kz8" target="_blank" class="flex items-center space-x-2 p-2 bg-white rounded-lg text-xs hover:bg-amber-50 transition border border-amber-100 shadow-sm">
+                            <img src="https://img.icons8.com/fluency/48/star.png" class="w-4 h-4" alt="icon">
+                            <span class="text-amber-800 font-bold">星路壢程天文營 (Canva)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="self-learning" class="scroll-section bg-white p-8 rounded-2xl shadow-sm border-t-4 border-[#A3B18A] reveal pt-12">
+            <div class="flex items-center mb-4">
+                <span class="text-2xl mr-3">💡</span>
+                <h2 class="text-2xl font-bold text-[#588157]">自主學習專區</h2>
+            </div>
+            <p class="text-gray-500 mb-6 text-sm">課表之外的熱情，是我最具主動性的證明。</p>
+            <ul class="space-y-3">
+                <li class="flex justify-between items-center p-3.5 bg-gray-50 rounded-lg hover:shadow-inner transition cursor-pointer">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://img.icons8.com/fluency/48/paint-palette.png" class="w-6 h-6 object-contain" alt="icon">
+                        <span class="font-medium text-gray-700">專題：描出人生 - 貼圖設計與發行</span>
+                    </div>
+                    <span class="text-xs text-green-600">詳情 →</span>
+                </li>
+                <li class="flex justify-between items-center p-3.5 bg-gray-50 rounded-lg hover:shadow-inner transition cursor-pointer">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://img.icons8.com/fluency/48/web-design.png" class="w-6 h-6 object-contain" alt="icon">
+                        <span class="font-medium text-gray-700">實踐：網頁前端技術與個人品牌建立</span>
+                    </div>
+                    <span class="text-xs text-green-600">詳情 →</span>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+    <div id="scienceModal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="text-lg font-bold text-gray-800">🔬 高一高二自然探究</h3>
+                <button onclick="toggleModal('scienceModal')" class="text-gray-400 hover:text-gray-600 text-xl font-bold">&times;</button>
+            </div>
+            
+            <p class="text-xs text-gray-500">請點擊以下連結以查看具體的探究與實作 Canva 簡報：</p>
+
+            <div class="space-y-3">
+                <a href="https://canva.link/4usp4zx47wh1p5o" target="_blank" class="flex items-center space-x-3 p-3 bg-gray-50 hover:bg-blue-50 border border-gray-100 hover:border-blue-200 rounded-xl text-xs transition shadow-sm">
+                    <img src="https://img.icons8.com/fluency/48/test-tube.png" class="w-5 h-5" alt="icon">
+                    <div class="flex-1">
+                        <span class="text-gray-800 font-bold block">高一 物理探究與實作成果</span>
+                        <span class="text-blue-500 text-[10px]">開啟 Canva 成果 →</span>
+                    </div>
+                </a>
+
+                <a href="https://canva.link/h4cxymplig69a58" target="_blank" class="flex items-center space-x-3 p-3 bg-gray-50 hover:bg-blue-50 border border-gray-100 hover:border-blue-200 rounded-xl text-xs transition shadow-sm">
+                    <img src="https://img.icons8.com/fluency/48/microscope.png" class="w-5 h-5" alt="icon">
+                    <div class="flex-1">
+                        <span class="text-gray-800 font-bold block">高二 生物探究與實作成果</span>
+                        <span class="text-blue-500 text-[10px]">開啟 Canva 成果 →</span>
+                    </div>
+                </a>
+
+                <a href="https://canva.link/u2ntxibh877l3h8" target="_blank" class="flex items-center space-x-3 p-3 bg-gray-50 hover:bg-blue-50 border border-gray-100 hover:border-blue-200 rounded-xl text-xs transition shadow-sm">
+                    <img src="https://img.icons8.com/fluency/48/test-tube.png" class="w-5 h-5" alt="icon">
+                    <div class="flex-1">
+                        <span class="text-gray-800 font-bold block">高二 化學探究與實作成果</span>
+                        <span class="text-blue-500 text-[10px]">開啟 Canva 成果 →</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="text-right pt-2">
+                <button onclick="toggleModal('scienceModal')" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg text-xs font-medium transition">關閉</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="morandi-bg-primary text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-sm opacity-75">© 2026 杜學沛 | 拾光軌跡 學習成果發表</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. 滾動漸顯效果 (由淺到深)
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+        // 2. 右側 5 個導覽點點高亮切換
+        const sections = document.querySelectorAll('.scroll-section');
+        const dots = document.querySelectorAll('.dot-indicator');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    dots.forEach(dot => {
+                        if (dot.getAttribute('data-section') === id) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.4 });
+
+        sections.forEach(section => sectionObserver.observe(section));
+
+        // 3. 彈出視窗開關腳本
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.toggle('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
